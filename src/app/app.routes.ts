@@ -8,6 +8,6 @@ export const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'libros', component: LibrosListaComponent },
   { path: 'nuevo', component: LibroFormularioComponent },
+  { path: 'buscar', component: LibroDetalleComponent },
   { path: 'editar/:id', component: LibroFormularioComponent },
-  { path: 'detalle/:id', component: LibroDetalleComponent },
 ];

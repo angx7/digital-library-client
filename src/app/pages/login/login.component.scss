@@ -1,54 +1,78 @@
-.login-wrapper {
-  max-width: 400px;
-  margin: 100px auto;
-  background: #ffffff;
-  padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-
-  h2 {
-    margin-bottom: 25px;
-    font-size: 24px;
-    color: #333;
-  }
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.login-form {
+.login-container {
+  width: 100%;
+  min-width: 380px;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10);
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 
-  input {
-    margin-bottom: 15px;
-    padding: 12px;
+  h2 {
+    font-size: 2rem;
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    input[type="email"],
+    input[type="password"],
+    button[type="submit"] {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    padding: 0.9rem 1rem;
+    border: 1.5px solid #e3eaf2;
     border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    transition: border 0.3s;
-
+    font-size: 1.05rem;
+    outline: none;
+    transition: border 0.2s;
+    background: #f7fbff;
     &:focus {
-      outline: none;
-      border-color: #007bff;
+      border: 1.5px solid #1976d2;
+      background: #fff;
     }
   }
 
-  button {
-    padding: 12px;
-    background: #007bff;
-    color: white;
+  button[type="submit"] {
+    background: #1976d2;
+    color: #fff;
     border: none;
+    padding: 0.9rem 0;
     border-radius: 8px;
-    font-size: 16px;
-    transition: background 0.3s ease;
-
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
     &:hover {
-      background: #0056b3;
+      background: #1256a3;
     }
   }
 
-  .error-msg {
-    color: #dc3545;
-    margin-top: 15px;
-    font-size: 14px;
+  .error-message {
+    color: #e53935;
+    font-size: 1rem;
+    margin-top: 0.5rem;
   }
 }

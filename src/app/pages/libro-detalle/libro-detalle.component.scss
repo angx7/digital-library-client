@@ -1,0 +1,124 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.buscar-libro-container {
+  max-width: 460px;
+  min-width: 400px;
+  width: 100%;
+  margin: 3rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10);
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  h2 {
+    color: #1976d2;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+
+    input[type="number"] {
+      padding: 0.7rem 1rem;
+      border: 1.5px solid #e3eaf2;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      outline: none;
+      transition: border 0.2s;
+      background: #f7fbff;
+      width: 140px;
+      &:focus {
+        border: 1.5px solid #1976d2;
+        background: #fff;
+      }
+    }
+
+    button[type="submit"] {
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      &:hover {
+        background: #1256a3;
+      }
+    }
+  }
+
+  h3 {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+  }
+
+  .mensaje-error {
+    color: #e53935;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+}
+
+.resultado-libro {
+  width: 100%;
+  background: #f7fbff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(25, 118, 210, 0.09);
+  padding: 1.2rem 1.5rem;
+  border-left: 5px solid #1976d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 1.5rem 0 0 0;
+}
+
+.libro-capsula {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.libro-icono {
+  font-size: 2.2rem;
+  color: #1976d2;
+  background: #e3f2fd;
+  border-radius: 50%;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 1px 4px rgba(25, 118, 210, 0.10);
+}
+
+.libro-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  strong {
+    font-size: 1.08rem;
+    color: #222;
+  }
+  small {
+    color: #666;
+    font-size: 0.97rem;
+  }
+  em {
+    color: #1256a3;
+  }
+}

@@ -1,6 +1,11 @@
 <nav *ngIf="estaLogueado" class="navbar">
   <span>Bienvenido, {{ usuario }} 👋</span>
-  <button (click)="logout()">Cerrar sesión</button>
+  <div class="navbar-actions">
+    <a routerLink="/libros" class="navbar-btn">Ver lista de libros</a>
+    <a routerLink="/nuevo" class="navbar-btn">+ Añadir libro</a>
+    <a routerLink="/buscar" class="navbar-btn">Buscar libro por código</a>
+    <button (click)="logout()" class="navbar-btn cerrar-sesion">Cerrar sesión</button>
+  </div>
 </nav>
 
 <router-outlet />

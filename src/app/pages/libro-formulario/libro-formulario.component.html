@@ -1,1 +1,27 @@
-<p>libro-formulario works!</p>
+<div class="libro-formulario-container">
+  <h2 *ngIf="!esEdicion">Añadir un libro</h2>
+  <h2 *ngIf="esEdicion">Editar libro</h2>
+  <form (ngSubmit)="crearLibro()" #form="ngForm" novalidate>
+    <input type="text" name="title" [(ngModel)]="libro.title" placeholder="Título" required #title="ngModel" />
+    <div *ngIf="form.submitted && title.invalid" class="campo-error">El título es obligatorio.</div>
+
+    <input type="text" name="author" [(ngModel)]="libro.author" placeholder="Autor" required #author="ngModel" />
+    <div *ngIf="form.submitted && author.invalid" class="campo-error">El autor es obligatorio.</div>
+
+    <input type="text" name="category" [(ngModel)]="libro.category" placeholder="Categoría" required #category="ngModel" />
+    <div *ngIf="form.submitted && category.invalid" class="campo-error">La categoría es obligatoria.</div>
+
+    <input type="number" name="year" [(ngModel)]="libro.year" placeholder="Año" required #year="ngModel" min="0" />
+    <div *ngIf="form.submitted && year.invalid" class="campo-error">El año es obligatorio.</div>
+
+    <input type="number" name="pages" [(ngModel)]="libro.pages" placeholder="Páginas" required #pages="ngModel" min="1" />
+    <div *ngIf="form.submitted && pages.invalid" class="campo-error">Las páginas son obligatorias.</div>
+
+    <button type="submit" [disabled]="form.invalid && form.submitted">
+      {{ esEdicion ? 'Editar libro' : 'Añadir libro' }}
+    </button>
+  </form>
+
+  <div *ngIf="mensaje" class="mensaje-exito">{{ mensaje }}</div>
+  <div *ngIf="error" class="mensaje-error">{{ error }}</div>
+</div>

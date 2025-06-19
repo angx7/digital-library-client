@@ -1,1 +1,22 @@
-<p>libro-detalle works!</p>
+<div class="buscar-libro-container">
+  <h2>Buscar libro por código</h2>
+  <form (ngSubmit)="buscarLibro()" #form="ngForm">
+    <input type="number" name="codigo" [(ngModel)]="codigo" placeholder="Código del libro" required min="1" />
+    <button type="submit" [disabled]="form.invalid">Buscar</button>
+  </form>
+
+  <div *ngIf="libro" class="resultado-libro">
+    <div class="libro-capsula">
+      <span class="libro-icono">📘</span>
+      <div class="libro-info">
+        <strong>{{ libro.codigo }}.- {{ libro.title }}</strong> – {{ libro.author }}
+        <br />
+        <small>
+          <em>{{ libro.category }}</em> – {{ libro.year }} – {{ libro.pages }} páginas
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="mensaje-error">{{ error }}</div>
+</div>

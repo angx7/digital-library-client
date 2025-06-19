@@ -1,21 +1,55 @@
-.navbar {
-  background-color: #007bff;
-  color: white;
-  padding: 12px 24px;
+nav.navbar {
+  background: #1976d2;
+  color: #fff;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 
-  button {
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
+  span {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
 
-    &:hover {
-      background: #c82333;
-    }
+  .navbar-btn {
+  background: #fff;
+  color: #1976d2;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 1px 4px rgba(25, 118, 210, 0.07);
+  transition: background 0.2s, color 0.2s;
+  margin-right: 1rem;
+  display: inline-block;
+  min-width: 180px;         // Ajusta este valor según el ancho que prefieras
+  text-align: center;
+  font-size: 1.1rem;        // Fuerza el mismo tamaño de fuente
+  line-height: 1.5;
+  font-family: inherit;     // Usa la misma fuente que el navbar
+  box-sizing: border-box;
+  &:hover {
+    background: #e3f2fd;
+    color: #1256a3;
+  }
+}
+
+.cerrar-sesion {
+  background: #e53935;
+  color: #fff;
+  margin-right: 0;
+  &:hover {
+    background: #b71c1c;
+    color: #fff;
+  }
+}
+    .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }

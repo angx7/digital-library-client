@@ -13,29 +13,37 @@ export class LibroService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  obtenerTodos(): Observable<Libro[]> {
+  private getHeaders() {
     const token = this.authService.getToken();
-
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    });
-
-    return this.http.get<Libro[]>(this.apiUrl, { headers });
+    return {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    };
   }
 
-  obtenerPorId(id: number): Observable<Libro> {
-    return this.http.get<Libro>(`${this.apiUrl}/${id}`);
+  obtenerTodos(): Observable<Libro[]> {
+    return this.http.get<Libro[]>(this.apiUrl, this.getHeaders());
   }
+
+  obtenerPorId(codigo: number): Observable<Libro> {
+    return this.http.get<Libro>(`${this.apiUrl}/${codigo}`, this.getHeaders());
+  }
+
+  // Nuevo: obtener libros por categoría
+  obtenerPorCategoria(categoria: string): Observable<Libro[]> {
+    return this.http.get<Libro[]>(`${this.apiUrl}/?category=${encodeURIComponent(categoria)}`, this.getHeaders());
+}
 
   crear(libro: Libro): Observable<Libro> {
-    return this.http.post<Libro>(this.apiUrl, libro);
+    return this.http.post<Libro>(this.apiUrl, libro, this.getHeaders());
   }
 
-  actualizar(id: number, libro: Libro): Observable<Libro> {
-    return this.http.put<Libro>(`${this.apiUrl}/${id}`, libro);
+  actualizar(codigo: number, libro: Libro): Observable<Libro> {
+    return this.http.put<Libro>(`${this.apiUrl}/${codigo}`, libro, this.getHeaders());
   }
 
-  eliminar(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  eliminar(codigo: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${codigo}`, this.getHeaders());
   }
 }

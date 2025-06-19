@@ -3,6 +3,6 @@ export interface Libro {
   author: string;
   category: string;
   year: number;
-  codigo: number;
+  codigo: null; // El código puede ser null si es un nuevo libro
   pages: number;
 }

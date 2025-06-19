@@ -1,18 +1,35 @@
 <div class="lista-container">
-  <h2>📚 Lista de libros</h2>
+  <h2 *ngIf="!error">📚 Lista de libros</h2>
 
+  <div *ngIf="!error" class="filtro-categoria">
+    <label for="categoria">Filtrar por categoría:</label>
+    <select id="categoria" [(ngModel)]="categoriaSeleccionada" (change)="filtrarPorCategoria()">
+      <option value="">Todas</option>
+      <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+    </select>
+  </div>
+
+  <p *ngIf="error" class="mensaje-error">{{ error }}</p>
   <p *ngIf="cargando">Cargando libros...</p>
 
   <ul *ngIf="!cargando && libros.length > 0">
-    <li *ngFor="let libro of libros">
-      <strong>{{ libro.title }}</strong> – {{ libro.author }}
-      <br />
-      <small
-        ><em>{{ libro.category }}</em> – {{ libro.year }} –
-        {{ libro.pages }} páginas</small
-      >
-    </li>
-  </ul>
+  <li *ngFor="let libro of libros">
+    <div class="libro-capsula">
+      <span class="libro-icono">📘</span>
+      <div class="libro-info">
+        <strong>{{libro.codigo}}.- {{ libro.title }}</strong> – {{ libro.author }}
+        <br />
+        <small>
+          <em>{{ libro.category }}</em> – {{ libro.year }} – {{ libro.pages }} páginas
+        </small>
+        <div class="acciones-libro">
+          <a [routerLink]="['/editar', libro.codigo]" class="btn-accion editar">Editar</a>
+          <button *ngIf="libro.codigo !== null" (click)="eliminarLibro(libro.codigo)" class="btn-accion eliminar">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
 
-  <p *ngIf="!cargando && libros.length === 0">No hay libros disponibles.</p>
+  <p *ngIf="!cargando && libros.length === 0 && !error">No hay libros disponibles.</p>
 </div>
