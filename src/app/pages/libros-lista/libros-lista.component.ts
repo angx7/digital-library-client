@@ -70,10 +70,20 @@ export class LibrosListaComponent implements OnInit {
   }
 
   eliminarLibro(codigo: number) {
-  if (confirm('¿Seguro que deseas eliminar este libro?')) {
-    this.libroService.eliminar(codigo).subscribe(() => {
-      this.libros = this.libros.filter(libro => libro.codigo !== codigo);
-    });
+    if (confirm('¿Seguro que deseas eliminar este libro?')) {
+      this.libroService.eliminar(codigo).subscribe(() => {
+        // Actualiza la lista de libros y categorías
+        this.obtenerLibros();
+        this.obtenerCategorias();
+
+        // Si la categoría seleccionada ya no existe, reinicia el filtro
+        setTimeout(() => {
+          if (!this.categorias.includes(this.categoriaSeleccionada)) {
+            this.categoriaSeleccionada = '';
+            this.obtenerLibros();
+          }
+        }, 100); // Pequeño delay para esperar la actualización de categorías
+      });
+    }
   }
-}
 }
