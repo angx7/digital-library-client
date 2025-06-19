@@ -1,10 +1,24 @@
 <nav *ngIf="estaLogueado" class="navbar">
   <span>Bienvenido, {{ usuario }} 👋</span>
-  <div class="navbar-actions">
+
+  <button
+    class="menu-toggle"
+    (click)="mostrarMenu = !mostrarMenu"
+    aria-label="Abrir menú"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Contenedor de botones -->
+  <div class="navbar-actions" [class.visible]="mostrarMenu">
     <a routerLink="/libros" class="navbar-btn">Ver lista de libros</a>
     <a routerLink="/nuevo" class="navbar-btn">+ Añadir libro</a>
     <a routerLink="/buscar" class="navbar-btn">Buscar libro por código</a>
-    <button (click)="logout()" class="navbar-btn cerrar-sesion">Cerrar sesión</button>
+    <button (click)="logout()" class="navbar-btn cerrar-sesion">
+      Cerrar sesión
+    </button>
   </div>
 </nav>
 

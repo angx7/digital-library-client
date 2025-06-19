@@ -122,3 +122,42 @@
     color: #1256a3;
   }
 }
+
+.acciones-libro {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .btn-accion {
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+  }
+
+  .editar {
+    background: #e3f2fd;
+    color: #1976d2;
+
+    &:hover {
+      background: #1976d2;
+      color: #fff;
+    }
+  }
+
+  .eliminar {
+    background: #ffeaea;
+    color: #e53935;
+
+    &:hover {
+      background: #e53935;
+      color: #fff;
+    }
+  }
+}

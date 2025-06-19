@@ -1,37 +1,47 @@
-nav.navbar {
-  background: #1976d2;
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+.navbar-actions {
+  display: none;
+  flex-direction: column;
+  align-items: center; // ✅ Centra los botones
+  gap: 0.6rem;
+  margin-top: 1rem;
+  width: 100%;
 
-  span {
-    font-weight: 500;
-    letter-spacing: 0.5px;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 0;
+    width: auto;
   }
 
-  .navbar-btn {
+  &.visible {
+    display: flex;
+  }
+}
+
+.navbar-btn {
   background: #fff;
   color: #1976d2;
   border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 1px 4px rgba(25, 118, 210, 0.07);
   transition: background 0.2s, color 0.2s;
-  margin-right: 1rem;
-  display: inline-block;
-  min-width: 180px;         // Ajusta este valor según el ancho que prefieras
   text-align: center;
-  font-size: 1.1rem;        // Fuerza el mismo tamaño de fuente
-  line-height: 1.5;
-  font-family: inherit;     // Usa la misma fuente que el navbar
+  font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
   box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    width: auto;
+    margin-right: 1rem;
+  }
+
   &:hover {
     background: #e3f2fd;
     color: #1256a3;
@@ -41,15 +51,39 @@ nav.navbar {
 .cerrar-sesion {
   background: #e53935;
   color: #fff;
-  margin-right: 0;
+
   &:hover {
     background: #b71c1c;
-    color: #fff;
   }
 }
-    .navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-left: auto; // lo empuja a la derecha en pantallas pequeñas
+
+  span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 2px;
+    transition: background 0.3s;
+  }
+
+  &:hover span {
+    background-color: #1976d2;
+  }
+
+  @media (min-width: 768px) {
+    display: none; // Esconde el botón en pantallas grandes
   }
 }
+

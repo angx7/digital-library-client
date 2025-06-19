@@ -11,10 +11,12 @@ import { AuthService } from './services/auth.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  mostrarMenu = false;
+
   constructor(public authService: AuthService, private router: Router) {
     if (this.authService.isLoggedIn() && this.router.url === '/') {
       //Redirigir si esta logueado a la ruta principal
-      this.router.navigate(['/libros'])
+      this.router.navigate(['/libros']);
     }
   }
 

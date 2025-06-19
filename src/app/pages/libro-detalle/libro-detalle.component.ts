@@ -7,7 +7,7 @@ import { Libro } from '../../models/libro';
   selector: 'app-libro-detalle',
   imports: [CommonModule, FormsModule],
   templateUrl: './libro-detalle.component.html',
-  styleUrl: './libro-detalle.component.scss'
+  styleUrl: './libro-detalle.component.scss',
 })
 export class LibroDetalleComponent {
   codigo: number | null = null;
@@ -21,8 +21,8 @@ export class LibroDetalleComponent {
     this.error = '';
     if (this.codigo) {
       this.libroService.obtenerPorId(this.codigo).subscribe({
-        next: (libro) => this.libro = libro,
-        error: () => this.error = 'No se encontró un libro con ese código.'
+        next: (libro) => (this.libro = libro),
+        error: () => (this.error = 'No se encontró un libro con ese código.'),
       });
     }
   }

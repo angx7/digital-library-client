@@ -11,7 +11,7 @@
   margin: 3rem auto;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10);
+  box-shadow: 0 4px 24px rgba(25, 118, 210, 0.1);
   padding: 2.5rem 2rem 2rem 2rem;
   text-align: center;
   display: flex;
@@ -42,6 +42,7 @@
     outline: none;
     transition: border 0.2s;
     background: #f7fbff;
+
     &:focus {
       border: 1.5px solid #1976d2;
       background: #fff;
@@ -59,6 +60,7 @@
     cursor: pointer;
     margin-top: 0.5rem;
     transition: background 0.2s;
+
     &:hover {
       background: #1256a3;
     }
@@ -68,5 +70,57 @@
     margin-top: 1rem;
     color: #1976d2;
     font-weight: 500;
+  }
+}
+
+/* ✅ Mensajes de error y éxito */
+.campo-error {
+  color: #e53935;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-top: -0.7rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.2rem;
+}
+
+.mensaje-exito {
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.1);
+  margin-top: 1rem;
+}
+
+.mensaje-error {
+  color: #c62828;
+  background: #ffebee;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(198, 40, 40, 0.1);
+  margin-top: 1rem;
+}
+
+/* ✅ Responsividad */
+@media (max-width: 480px) {
+  .libro-formulario-container {
+    min-width: auto;
+    margin: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+    padding: 0.8rem 0;
   }
 }
