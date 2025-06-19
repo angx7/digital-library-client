@@ -42,6 +42,12 @@ export class LibroFormularioComponent {
   crearLibro() {
     this.mensaje = '';
     this.error = '';
+    
+    if (!this.libro.title || !this.libro.author || !this.libro.category || !this.libro.year || !this.libro.pages) {
+      this.error = 'Por favor, completa todos los campos.';
+      return;
+    }
+
     if (this.esEdicion && this.libro.codigo) {
       this.libroService.actualizar(this.libro.codigo, this.libro).subscribe({
         next: () => {
