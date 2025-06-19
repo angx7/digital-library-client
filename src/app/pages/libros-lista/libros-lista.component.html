@@ -1,0 +1,18 @@
+<div class="lista-container">
+  <h2>📚 Lista de libros</h2>
+
+  <p *ngIf="cargando">Cargando libros...</p>
+
+  <ul *ngIf="!cargando && libros.length > 0">
+    <li *ngFor="let libro of libros">
+      <strong>{{ libro.title }}</strong> – {{ libro.author }}
+      <br />
+      <small
+        ><em>{{ libro.category }}</em> – {{ libro.year }} –
+        {{ libro.pages }} páginas</small
+      >
+    </li>
+  </ul>
+
+  <p *ngIf="!cargando && libros.length === 0">No hay libros disponibles.</p>
+</div>

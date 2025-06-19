@@ -1,0 +1,6 @@
+<nav *ngIf="estaLogueado" class="navbar">
+  <span>Bienvenido, {{ usuario }} 👋</span>
+  <button (click)="logout()">Cerrar sesión</button>
+</nav>
+
+<router-outlet />
